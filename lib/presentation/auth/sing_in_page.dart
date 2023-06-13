@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../di/di.dart';
-import '../core/failure_snackbar_handler.dart';
 import '../resource/app_pading.dart';
 import 'provider/auth_provider.dart';
 import 'widget/sign_in_form.dart';
@@ -23,26 +22,9 @@ class _SignInPageState extends State<SignInPage> {
       body: SafeArea(
         child: ChangeNotifierProvider(
           create: (BuildContext context) => getIt<AuthProvider>(),
-          child: Padding(
+          child: const Padding(
             padding: AppPadding.page,
-            child: Selector<AuthProvider, AuthProvider>(
-              shouldRebuild: (previous, next) {
-                return previous.failure != next.failure;
-              },
-              selector: (context, provider) => provider,
-              builder: (context, provider, child) {
-                if (provider.failure.isSome()) {
-                  provider.failure.fold(
-                    () => null,
-                    (a) => FailureSnackBarHandler.handleFailure(
-                      context: context,
-                      failure: a,
-                    ),
-                  );
-                }
-                return const SignInForm();
-              },
-            ),
+            child: SignInForm(),
           ),
         ),
       ),
