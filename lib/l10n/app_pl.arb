@@ -8,5 +8,8 @@
   "validationFieldIsRequired": "Pole jest wymagane",
   "validationFieldIsInvalidEmail": "Email jest nieprawidłowy",
   "@@_SIGNINPAGE": {},
-  "signInPagelogin": "Zaloguj sie"
+  "signInPagelogin": "Zaloguj sie",
+  "@@_COUNTRYPAGE": {},
+  "countryCapital": "Stolica",
+  "countryCountry": "Panstwo"
 }

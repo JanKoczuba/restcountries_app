@@ -40,7 +40,7 @@ class BaseButton extends StatelessWidget {
         highlightColor: AppColor.buttonPrimaryHighlight,
         onTap: onPressed,
         child: DefaultTextStyle(
-          style: customTextStyle ?? AppTextStyles.baseButton,
+          style: customTextStyle ?? AppTextStyle.baseButton,
           child: Padding(
             padding: padding,
             child: Center(child: child),
