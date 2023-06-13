@@ -45,7 +45,7 @@ abstract class BaseApiService {
       }
 
       if (statusCode != null && statusCode >= 400 && statusCode <= 499) {
-        return const Failure.badRequest();
+        return Failure.badRequest(message: _tryParseErrorMessage(response));
       }
 
       if (statusCode != null && statusCode >= 500 && statusCode <= 599) {
@@ -60,5 +60,19 @@ abstract class BaseApiService {
     }
 
     return const Failure.unknown();
+  }
+
+  String? _tryParseErrorMessage(Response<dynamic> response) {
+    final data = response.data;
+    if (data is! Map<String, dynamic>) {
+      return null;
+    }
+
+    final errorMessage = data['detail'];
+    if (errorMessage is! String) {
+      return null;
+    }
+
+    return errorMessage;
   }
 }

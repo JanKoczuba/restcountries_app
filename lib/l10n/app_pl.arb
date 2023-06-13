@@ -1,1 +1,12 @@
-{}
+{
+  "@@_COMMON": {},
+  "messageServerConnectionFailed": "Wystąpił problem połączenia z serwerem. Spróbuj ponownie później.",
+  "messageServerInvalidResponse": "Otrzymano nieoczekiwaną odpowiedź z serwera.",
+  "messageServerBadRequest": "Wykonano nieprawidłowe żądanie.",
+  "messageUnexpectedErrorOccurred": "Wystąpił nieoczekiwany błąd.",
+  "@@_VALIDATION": {},
+  "validationFieldIsRequired": "Pole jest wymagane",
+  "validationFieldIsInvalidEmail": "Email jest nieprawidłowy",
+  "@@_SIGNINPAGE": {},
+  "signInPagelogin": "Zaloguj sie"
+}
