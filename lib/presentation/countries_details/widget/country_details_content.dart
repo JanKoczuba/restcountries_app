@@ -30,9 +30,11 @@ class CountryDetailsContent extends StatelessWidget {
       final countryDetails =
           context.read<CountryDetailsProvider>().countryDetails;
       return countryDetails.fold(
-        () => DefaultErrorWidget(
-            onRefresh: () =>
-                context.read<CountryDetailsProvider>().getData(country)),
+        () => Center(
+          child: DefaultErrorWidget(
+              onRefresh: () =>
+                  context.read<CountryDetailsProvider>().getData(country)),
+        ),
         (countyDetails) => SingleChildScrollView(
           child: Column(
             children: [
@@ -66,6 +68,7 @@ class CountryDetailsContent extends StatelessWidget {
               TimezonesBuilder(
                 timezones: countyDetails.timezones,
               ),
+              const SizedBox(height: 12),
             ],
           ),
         ),

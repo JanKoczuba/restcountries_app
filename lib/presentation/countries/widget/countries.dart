@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../router/app_router.gr.dart';
+import '../../core/default_error_widget.dart';
 import '../provider/countries_provider.dart';
 import 'country_card.dart';
 
@@ -14,11 +15,16 @@ class Countries extends StatelessWidget {
     return Consumer<CountriesProvider>(
       builder: (_, authProvider, child) {
         final isLoading = context.read<CountriesProvider>().isLoading;
-
         if (isLoading) {
           return const Center(child: CircularProgressIndicator());
         }
         final countries = context.read<CountriesProvider>().countries;
+        if (countries.isEmpty) {
+          return Center(
+            child: DefaultErrorWidget(
+                onRefresh: () => context.read<CountriesProvider>().getData()),
+          );
+        }
         return SingleChildScrollView(
           child: ListView.builder(
               shrinkWrap: true,
