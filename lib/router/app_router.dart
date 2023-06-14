@@ -13,11 +13,11 @@ class AppRouter extends $AppRouter {
   @override
   final List<AutoRoute> routes = [
     AutoRoute(
-      page: SignInRoute.page,
+      page: SplashRoute.page,
       initial: true,
     ),
+    AutoRoute(page: SignInRoute.page),
     AutoRoute(page: CountriesRoute.page),
     AutoRoute(page: CountryDetailsRoute.page),
-
   ];
 }
