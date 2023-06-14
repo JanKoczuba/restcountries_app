@@ -10,9 +10,17 @@ abstract class AppColor {
   static const buttonPrimary = primary;
   static const buttonPrimaryHighlight = secondary;
 
-  static const commentCardBackground = Color(0x13D3D3D3);
-  static const commentName = primary;
-  static const commentBody = secondary;
+  static const countryCardBackground = Color(0x13D3D3D3);
+  static const countryName = primary;
+  static const countryBody = secondary;
+
+
+  static const countryDetailsName = primary;
+  static const countryDetailsCurrency = secondary;
+  static const countryDetailsPopulation = secondary;
+  static const countryDetailsHeader = accent;
+  static const countryDetailsUrlLauncher = Color(0xBB22C4FF);
+
 
   static const error = red;
 

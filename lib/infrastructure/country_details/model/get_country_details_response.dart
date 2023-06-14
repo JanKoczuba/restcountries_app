@@ -11,6 +11,8 @@ class GetCountryDetailsResponse extends Equatable {
     required this.coatOfArms,
     required this.maps,
     required this.population,
+    required this.timezones,
+    required this.continents,
   });
 
   @JsonKey(name: 'name')
@@ -19,6 +21,8 @@ class GetCountryDetailsResponse extends Equatable {
   final GetCoatOfArms coatOfArms;
   final GetGoogleMapsUrl maps;
   final int population;
+  final List<String> timezones;
+  final List<String> continents;
 
   factory GetCountryDetailsResponse.fromJson(Map<String, dynamic> json) =>
       _$GetCountryDetailsResponseFromJson(json);
@@ -30,6 +34,8 @@ class GetCountryDetailsResponse extends Equatable {
         coatOfArms,
         maps,
         population,
+        timezones,
+        continents,
       ];
 }
 
@@ -56,7 +62,7 @@ class GetCoatOfArms extends Equatable {
     required this.png,
   });
 
-  final String png;
+  final String? png;
 
   factory GetCoatOfArms.fromJson(Map<String, dynamic> json) =>
       _$GetCoatOfArmsFromJson(json);
@@ -71,18 +77,32 @@ class GetCoatOfArms extends Equatable {
 class GetCurrenciesName extends Equatable {
   const GetCurrenciesName({
     required this.currencies,
+    required this.symbol,
   });
 
-  final List<String> currencies;
+  final String? currencies;
+  final String? symbol;
 
-  factory GetCurrenciesName.fromJson(Map<String, dynamic> json) {
-    final currencies = json.keys.map((key) => json[key]['name'].toString()).toList();
-    return GetCurrenciesName(currencies: currencies);
+  factory GetCurrenciesName.fromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return const GetCurrenciesName(
+        currencies: null,
+        symbol: null,
+      );
+    }
+    final key = json.keys.first;
+    final currencyJson = json[key];
+
+    return GetCurrenciesName(
+      currencies: currencyJson['name'],
+      symbol: currencyJson['symbol'],
+    );
   }
 
   @override
   List<Object?> get props => [
         currencies,
+        symbol,
       ];
 }
 

@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../router/app_router.gr.dart';
 import '../provider/countries_provider.dart';
 import 'country_card.dart';
 
@@ -20,11 +22,16 @@ class Countries extends StatelessWidget {
         return SingleChildScrollView(
           child: ListView.builder(
               shrinkWrap: true,
-              physics: const  NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               itemCount: countries.length,
               itemBuilder: (context, index) {
                 final country = countries[index];
-                return CountryCard(country: country);
+                return InkWell(
+                  onTap: () => context.router.push(CountryDetailsRoute(
+                    country: country.name,
+                  )),
+                  child: CountryCard(country: country),
+                );
               }),
         );
       },

@@ -4,6 +4,8 @@
   "messageServerInvalidResponse": "Otrzymano nieoczekiwaną odpowiedź z serwera.",
   "messageServerBadRequest": "Wykonano nieprawidłowe żądanie.",
   "messageUnexpectedErrorOccurred": "Wystąpił nieoczekiwany błąd.",
+  "refresh": "Zaladuj ponownie",
+  "defaultErrorMessage": "Wystąpil blad podczas ladowanai danych",
   "@@_VALIDATION": {},
   "validationFieldIsRequired": "Pole jest wymagane",
   "validationFieldIsInvalidEmail": "Email jest nieprawidłowy",
@@ -11,5 +13,12 @@
   "signInPagelogin": "Zaloguj sie",
   "@@_COUNTRYPAGE": {},
   "countryCapital": "Stolica",
-  "countryCountry": "Panstwo"
+  "countryCountry": "Panstwo",
+  "@@_COUNTRYDetailsPAGE": {},
+  "countryDetailsPopulation": "Populacja",
+  "countryDetailsCurrencies": "Waluta",
+  "countryDetailsTimezones": "Strefy czasowe",
+  "countryDetailsContinents": "Polozony na kontynentach",
+  "countryDetailsGoogleMaps": "Google Maps",
+  "countryDetailsOpenInGoogleMaps": "Otwórz w mapach google"
 }

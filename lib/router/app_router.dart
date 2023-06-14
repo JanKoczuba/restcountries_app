@@ -17,5 +17,7 @@ class AppRouter extends $AppRouter {
       initial: true,
     ),
     AutoRoute(page: CountriesRoute.page),
+    AutoRoute(page: CountryDetailsRoute.page),
+
   ];
 }

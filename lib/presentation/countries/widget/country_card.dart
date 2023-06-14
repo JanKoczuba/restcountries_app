@@ -18,7 +18,7 @@ class CountryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: AppColor.commentCardBackground,
+      color: AppColor.countryCardBackground,
       elevation: 0,
       child: Padding(
         padding: AppPadding.cardMargin,

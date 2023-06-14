@@ -3,6 +3,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../../domain/core/failure.dart';
 import '../../../domain/country_details/entity/country_deatils.dart';
+import '../../../domain/country_details/entity/currency.dart';
 import '../../../domain/country_details/repository/country_details_repository.dart';
 import '../../core/service/base_api_service.dart';
 import '../api/country_details_api.dart';
@@ -25,10 +26,17 @@ class ApiCountryDetailsRepository extends BaseApiService
             final response = result.first;
             return right(CountryDetails(
               fullName: response.fullName.official,
-              currencies: response.currencies.currencies,
+              currency: response.currencies.currencies != null
+                  ? Currency(
+                      currencies: response.currencies.currencies!,
+                      currenciesSymbol: response.currencies.symbol!,
+                    )
+                  : null,
               coatOfArms: response.coatOfArms.png,
               googleMaps: response.maps.googleMaps,
               population: response.population,
+              timezones: response.timezones,
+              continents: response.continents,
             ));
           }
           return left(const Failure.invalidResponse());
